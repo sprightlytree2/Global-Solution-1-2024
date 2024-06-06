@@ -1,23 +1,18 @@
-import { UserController } from "./controller/UserController"
+import { Router, request, response, Request, Response } from "express";
 
-export const Routes = [{
-    method: "get",
-    route: "/users",
-    controller: UserController,
-    action: "all"
-}, {
-    method: "get",
-    route: "/users/:id",
-    controller: UserController,
-    action: "one"
-}, {
-    method: "post",
-    route: "/users",
-    controller: UserController,
-    action: "save"
-}, {
-    method: "delete",
-    route: "/users/:id",
-    controller: UserController,
-    action: "remove"
-}]
+import { getPosts } from "./controller/PostController";
+
+const routes = Router();
+
+routes.get("/home", (request: Request, response: Response) => {
+    return response.json({message: "Hello turma!"})
+});
+
+routes.get("/posts", getPosts);
+/*
+routes.post("/items", postItems);
+routes.get("/items/:id", getItem);
+routes.put("/items/:id", updateItem);
+routes.delete("/items/:id", deleteItem);
+*/
+export default routes;
