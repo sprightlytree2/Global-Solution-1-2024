@@ -1,4 +1,4 @@
-import { Router, request, response, Request, Response } from "express";
+import { Router, Request, Response } from "express";
 
 import { getPosts, postPost } from "./controller/PostController";
 
